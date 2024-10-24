@@ -1,9 +1,7 @@
-AOS.init();
-
 const reviewsSlider = () => {
     var swiper = new Swiper(".mySwipersec", {
-        cssMode: true,
-        centerSlide: true,
+        loop: true,
+        simulateTouch: true,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -26,8 +24,6 @@ const reviewsSlider = () => {
                 spaceBetween: 20,
             }
         },
-        mousewheel: true,
-        keyboard: true,
     });
 }
 reviewsSlider();
@@ -79,7 +75,7 @@ const sliderBanners = () => {
                 spaceBetween: 20,
             },
         },
-        speed: 3000,
+        speed: 2000,
     });
 
     const swiper2 = new Swiper('.swiper2', {
@@ -100,7 +96,7 @@ const sliderBanners = () => {
             disableOnInteraction: false,
             reverseDirection: true,
         },
-        speed: 3000,
+        speed: 2000,
     });
 
     const swiper3 = new Swiper('.swiper3', {
@@ -120,7 +116,7 @@ const sliderBanners = () => {
             delay: 0,
             disableOnInteraction: false,
         },
-        speed: 3000,
+        speed: 2000,
     });
 
     const swiper4 = new Swiper('.swiper4', {
@@ -141,7 +137,7 @@ const sliderBanners = () => {
             disableOnInteraction: false,
             reverseDirection: true,
         },
-        speed: 3000,
+        speed: 2000,
     });
 }
 sliderBanners();
@@ -169,35 +165,34 @@ const gsapAnim = () => {
         stagger: .4
     })
 
-    // Create a timeline
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: '.trans-box',
             start: "top 100%",
             end: "bottom 0%",
-            scrub: true, // Allows for a smooth animation as you scroll
-            toggleActions: "play none none reset"
+            scrub: true,
+            toggleActions: "play none none reset",
+            stagger: true
         }
     });
 
-    // Add animations to the timeline with easing
     tl.from('.trans-box:nth-child(1)', {
         y: -250,
-        duration: 1.5, // Adjusted duration for smoother effect
-        ease: "power3.out" // Smoother easing function
+        duration: 1.5,
+        ease: "power3.out"
     });
 
     tl.from('.trans-box:nth-child(2)', {
         y: 350,
         duration: 1.5,
-        ease: "power3.out" // Consistent easing
-    }, "-=1.2"); // Adjusted overlap for smoother flow
+        ease: "power3.out"
+    }, "-=1.2");
 
     tl.from('.trans-box:nth-child(3)', {
         y: -150,
         duration: 1.5,
-        ease: "power3.out" // Consistent easing
-    }, "-=1.2"); // Adjusted overlap for smoother flow    
+        ease: "power3.out"
+    }, "-=1.2");
 }
 
 gsapAnim();
@@ -205,6 +200,24 @@ gsapAnim();
 
 
 
+const tl2 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.wanna-row',
+        start: "top 100%",
+        end: "bottom 0%",
+        scrub: true,
+        toggleActions: "play none none reset",
+        stagger: true
+    }
+});
+
+tl2.from('.wanna-row h2', {
+    opacity: 0,
+    x: -100,
+    y: 150,
+    duration: .8,
+    stagger: .4
+});
 
 
 
@@ -212,4 +225,95 @@ gsapAnim();
 
 
 
+const tl3 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.ser-row',
+        start: "top 100%",
+        end: "bottom 0%",
+        scrub: true,
+        toggleActions: "play none none reset",
+        stagger: true
+    }
+});
+
+tl3.from('.ser-box', {
+    opacity: 0,
+    y: 80,
+    duration: .8,
+    stagger: .4
+});
+
+const tl4 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.works-row',
+        start: "top 60%",
+        end: "bottom 10%",
+        scrub: true,
+        toggleActions: "play none none reset",
+        stagger: true
+    }
+});
+
+tl4.from('.wrk-box', {
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    stagger: .4
+});
+
+
+const tl5 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.Hear-row',
+        start: "top 100%",
+        end: "bottom 0%",
+        scrub: true,
+        toggleActions: "play none none reset",
+        stagger: true
+    }
+});
+
+tl5.from('.Hear-row h2', {
+    opacity: 0,
+    x: -100,
+    y: 150,
+    duration: .8,
+    stagger: .4
+});
+
+const tl6 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.rev-box',
+        start: "top 100%",
+        end: "bottom 0%",
+        scrub: true,
+        toggleActions: "play none none reset",
+        stagger: true
+    }
+});
+
+tl6.from('.rev-box-main', {
+    opacity: 0,
+    y: 80,
+    duration: .8,
+    stagger: .4
+});
+
+
+const tl7 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.foot-row',
+        start: "top 80%",
+        end: "bottom 0%",
+        scrub: true,
+    }
+});
+
+// Animate all anchor tags inside .soc-lins li
+tl7.to('.soc-lins', {
+    opacity: 0,
+    y: 20,
+    duration: 0.3,
+    stagger: 0.5 // Adjusted stagger time for smoother transitions
+});
 
